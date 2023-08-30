@@ -1,4 +1,4 @@
-      const randomInRange = (min, max) => {
+       const randomInRange = (min, max) => {
         return Math.random() * (max - min) + min;
       };
 
@@ -31,8 +31,8 @@
           }, randomTime);
         })]
       
-
-      Promise.any(promiseArray).then((data) => {
+        let mainPromiseArray = [promiseArray,promiseArray2,promiseArray3,promiseArray4,promiseArray5];
+      Promise.any(mainPromiseArray).then((data) => {
         document.getElementById("output").innerText = data;
       })
 
