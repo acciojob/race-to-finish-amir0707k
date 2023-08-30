@@ -1,29 +1,42 @@
+      const randomInRange = (min, max) => {
+        return Math.random() * (max - min) + min;
+      };
 
-        function getRandomTime(min, max) {
-            return Math.random() * (max - min) + min;
-        }
+      let randomTime = Math.floor(randomInRange(1, 6));
 
-        function delay(ms) {
-            return new Promise(resolve => setTimeout(resolve, ms));
-        }
+      let promiseArray = [
+        new Promise((resolve, reject) => {
+          setTimeout(() => {
+            return resolve();
+          }, randomTime);
+        }),
+        new Promise((resolve, reject) => {
+          setTimeout(() => {
+            return resolve();
+          }, randomTime);
+        }),
+        new Promise((resolve, reject) => {
+          setTimeout(() => {
+            return resolve();
+          }, randomTime);
+        }),
+        new Promise((resolve, reject) => {
+          setTimeout(() => {
+            return resolve();
+          }, randomTime);
+        }),
+        new Promise((resolve, reject) => {
+          setTimeout(() => {
+            return resolve();
+          }, randomTime);
+        }),
+      ];
 
-        function createRandomPromise() {
-            return new Promise(resolve => {
-                const randomTime = getRandomTime(1000, 5000); // Random time between 1 and 5 seconds
-                setTimeout(() => {
-                    resolve(`Promise resolved after ${randomTime} milliseconds`);
-                }, randomTime);
-            });
-        }
+      Promise.any(promiseArray).then((data) => {
+        document.getElementById("output").innerText = data;
+      })
 
-        const promises = Array.from({ length: 5 }, createRandomPromise);
-
-        Promise.any(promises)
-            .then(result => {
-                const outputDiv = document.getElementById('output');
-                outputDiv.textContent = result;
-            })
-	window.promises = [promises];
+window.promises = [promiseArray];
 
 // Do not change the code above this
 // add your promises to the array `promises`
