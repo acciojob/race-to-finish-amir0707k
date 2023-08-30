@@ -9,34 +9,34 @@
           setTimeout(() => {
             return resolve();
           }, randomTime);
-        }),
-        new Promise((resolve, reject) => {
+        })]
+       let promiseArray2 = [new Promise((resolve, reject) => {
           setTimeout(() => {
             return resolve();
           }, randomTime);
-        }),
-        new Promise((resolve, reject) => {
+        })]
+       let promiseArray3 = [new Promise((resolve, reject) => {
           setTimeout(() => {
             return resolve();
           }, randomTime);
-        }),
-        new Promise((resolve, reject) => {
+        })]
+       let promiseArray4 =  [new Promise((resolve, reject) => {
           setTimeout(() => {
             return resolve();
           }, randomTime);
-        }),
-        new Promise((resolve, reject) => {
+        })]
+       let promiseArray5 = [new Promise((resolve, reject) => {
           setTimeout(() => {
             return resolve();
           }, randomTime);
-        }),
-      ];
+        })]
+      
 
       Promise.any(promiseArray).then((data) => {
         document.getElementById("output").innerText = data;
       })
 
-window.promises = [promiseArray];
+window.promises = [promiseArray,promiseArray2,promiseArray3,promiseArray4,promiseArray5];
 
 // Do not change the code above this
 // add your promises to the array `promises`
